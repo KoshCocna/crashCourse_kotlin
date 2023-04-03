@@ -1,7 +1,30 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+//chapter 1
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+//chapter 2
+
+//class and свойства
+// inheritance
+// abstract
+// anonymous ???
+
+//03-04__________упрощение вызова функции
+
+fun main(args: Array<String>){
+    val list = listOf(1,2,3)
+    println(joinToString(list,";", "(", ")"))
+}
+
+fun <T> joinToString(
+    collection: Collection<T>,
+    separator: String,
+    prefix: String,
+    postfix: String
+):String{
+    val result = StringBuilder(prefix)
+    for((index, element) in collection.withIndex()){
+        if (index>0) result.append(separator)
+        result.append(element)
+    }
+    result.append(postfix)
+    return result.toString()
 }
